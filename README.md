@@ -49,7 +49,13 @@ artists = Artist.search("Macklemore", {:results => 20, :sort => "hotttnesss-desc
 
 ### Song
 
-You can search for songs for an artist name
+Just like with the Artist resource, you can search by a song title
+
+``` ruby
+song = Song.search("The Town")
+```
+
+You can search for songs by an artist name
 
 ``` ruby
 songs = Song.find_by_artist_name("Macklemore")
