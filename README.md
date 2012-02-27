@@ -64,7 +64,7 @@ songs = Song.find_by_artist_name("Macklemore", :sort => "song_hotttnesss")
 You can retrieve additional information by specifying a bucket like so:
 
 ``` ruby
-songs = Song.find_by_artist_name("Macklemore", :sort => "duration-desc", :bucket => "audio_summary")
+songs = Song.find_by_artist_name("Macklemore", :bucket => "audio_summary", :results => 20)
 ```
 
 
