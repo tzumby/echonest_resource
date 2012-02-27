@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["tzumby"]
   s.email       = ["tzumby@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Echonest API Wrapper}
+  s.description = %q{Use this gem to search the Echonest API for Artists and Songs}
 
   s.rubyforge_project = "echonest_resource"
 
@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "httparty"
+  s.add_runtime_dependency "hashie"
 end
