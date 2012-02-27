@@ -18,6 +18,8 @@ Obtain an API key from echonest and create a file called 'echonest.yml' in your 
 
 Right now the gem supports two Echonest resources: Artist and Song
 
+### Artist
+
 ``` ruby
 class Artist < ActiveResource::Base
 	include EchonestResource::Base
@@ -32,50 +34,39 @@ class Artist < ActiveResource::Base
 end
 ```
 
-Now you can lookup an artist by id:
-
-``` ruby
-artist = Artist.find(123)
-```
-
-You can also search for artists:
+Now you can search for an artist:
 
 ``` ruby
 artists = Artist.search("Macklemore")
 ```
 
-You can, for example chain methods. Here is how you can search for all 'Non Phixion' songs that have 90 BPM
+The search method also accepts an options hash where you can specify things like: results, bucket, sort
 
 
 ``` ruby
-artists = Artist.search("Macklemore").bpm({:min => 90, :max => 100})
+artists = Artist.search("Macklemore", {:results => 20, :sort => "hotttnesss-desc"})
 ```
 
-Or you can order the results
+### Song
+
+You can search for songs for an artist name
 
 ``` ruby
-artists = Artist.search("Macklemore").sort({:familiarity => :asc})
+songs = Song.find_by_artist_name("Macklemore")
 ```
 
-## Associations
+The find_by_artist_name method also accepts an options hash 
 
 ``` ruby
-class Song < ActiveResource::Base
-	echonest_resource :song
-end
+songs = Song.find_by_artist_name("Macklemore", :sort => "song_hotttnesss")
 ```
+
+You can retrieve additional information by specifying a bucket like so:
 
 ``` ruby
-class Artist < ActiveResource::Base
-	echonest_resource :artist
-end
+songs = Song.find_by_artist_name("Macklemore", :sort => "duration-desc", :bucket => "audio_summary")
 ```
 
-``` ruby
-macklemore = Artist.find(123)
-songs = macklemore.songs  # => [#<Song>, #<Song>]
-songs.first.title # => "The first song"
-```
 
-All the attributes on the songs use the same name as the Echonest API (http://developer.echonest.com/docs/v4/song.html)
+All the attributes on the songs use the same name as the Echonest API (http://developer.echonest.com/docs/v4)
 
