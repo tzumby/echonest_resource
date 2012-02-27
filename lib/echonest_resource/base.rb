@@ -35,7 +35,6 @@ module EchonestResource
           EOV
         when :song
           instance_eval <<-EOV
-          
             def find_by_artist_id(id, options={})
               raise StandardError if id.blank?
           
@@ -50,8 +49,8 @@ module EchonestResource
             def find_by_artist_name(name, options={})
               raise StandardError if name.blank?
               
-              if artist = Artist.search(:name => name)
-                Song.find_by_id(artist.first.id, options)
+              if artist = Artist.search(name)
+                Song.find_by_artist_id(artist.first.id, options)
               end
             end
             
@@ -63,8 +62,6 @@ module EchonestResource
               ))
               results
             end
-            
-            
           EOV
         end
               
