@@ -1,12 +1,34 @@
 # Echonest gem
 
+## Installation
+
+Add the gem to your Gemfile
+
+``` ruby
+	gem "echonest_resource"
+```
+
+Obtain an API key from echonest and create a file called 'echonest.yml' in your /config directory
+
+``` ruby
+	api_key = "YOUR_API_KEY"
+```
+
 ## Usage
 
 Right now the gem supports two Echonest resources: Artist and Song
 
 ``` ruby
 class Artist < ActiveResource::Base
+	include EchonestResource::Base
 	echonest_resource :artist
+end
+```
+
+``` ruby
+class Artist < ActiveResource::Base
+	include EchonestResource::Base
+	echonest_resource :song
 end
 ```
 
@@ -45,7 +67,6 @@ end
 
 ``` ruby
 class Artist < ActiveResource::Base
-	has_many :songs
 	echonest_resource :artist
 end
 ```
