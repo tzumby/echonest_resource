@@ -10,7 +10,7 @@ Add the gem to your Gemfile
 gem "echonest_resource"
 ```
 
-Obtain an API key from echonest and create a file called 'echonest.yml' in your /config directory
+Obtain an API key from <a href="https://developer.echonest.com/account/register">Echonest</a> and create a file called 'echonest.yml' in your /config directory
 
 ``` ruby
 api_key = "YOUR_API_KEY"
