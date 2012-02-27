@@ -60,7 +60,7 @@ module EchonestResource
               results = Hashie::Mash.new(self.get('/song/search', :query => 
                 request_params.merge({:title => title}).merge(options)
               ))
-              results
+              if results.response && results.response.songs; results.response.songs; end;
             end
           EOV
         end
