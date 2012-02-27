@@ -1,4 +1,6 @@
-# Echonest gem
+# Echonest Resource Gem
+
+*Note: This gem is in early development, it is not ready for production use.*
 
 ## Installation
 
