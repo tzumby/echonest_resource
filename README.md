@@ -5,13 +5,13 @@
 Add the gem to your Gemfile
 
 ``` ruby
-	gem "echonest_resource"
+gem "echonest_resource"
 ```
 
 Obtain an API key from echonest and create a file called 'echonest.yml' in your /config directory
 
 ``` ruby
-	api_key = "YOUR_API_KEY"
+api_key = "YOUR_API_KEY"
 ```
 
 ## Usage
