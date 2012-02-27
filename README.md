@@ -21,14 +21,14 @@ Right now the gem supports two Echonest resources: Artist and Song
 ### Artist
 
 ``` ruby
-class Artist < ActiveResource::Base
+class Artist
 	include EchonestResource::Base
 	echonest_resource :artist
 end
 ```
 
 ``` ruby
-class Artist < ActiveResource::Base
+class Song
 	include EchonestResource::Base
 	echonest_resource :song
 end
